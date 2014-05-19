@@ -1,0 +1,146 @@
+/*
+	========= Классы-помошники: ========
+*/
+
+.disable-hover { pointer-events: none; }
+
+/* ----- Несколько вариантов скрытие контента: ----- */
+
+/* Для замены картинок: */
+.ir {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden; }
+
+/* Скрытие текста: */
+.hide-text {
+    font: 0/0 a;
+    color: transparent; }
+
+/* Убирание элемента: */
+.none { display: none }
+
+/* Скрытие элемента: */
+.hide-el {
+	position: absolute;
+	left: -9999px; }
+
+/* Стиль помошник из Bootstrap: */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+/* ----- Активация BFC ----- */
+
+/* Классический clearfix: */
+
+%cf,
+.cf {
+	&:before, &:after {
+	    content: "";
+	    display: table;
+	    overflow: hidden; }
+	
+	&:after { clear: both }
+	
+	*zoom: 1
+}
+
+/* Супер маленький clearfix для BFC: */
+
+%mcf,
+.mcf {
+	*zoom: 1;
+	
+	&:after {
+	    content: "";
+	    display: table;
+	    clear: both; }
+}
+
+/* 	Magic ***
+	http://www.fionachan.net/talks/block-formatting-context/#/
+*/
+
+.bfc, %bfc {
+	display: table-cell;
+	width: 10000px;
+	vertical-align: top;
+	
+	zoom: 1;
+}
+
+/* Самый простой способ включить BFC: */
+
+.ocf {
+    overflow: hidden;
+    *zoom: 1; }
+
+%sizer,
+.sizer {
+	overflow: hidden;
+	display: block; }
+
+/* ----- Отображение: ----- */
+
+.inline-block {
+    display: inline-block;
+    vertical-align: top; }
+    
+%like-table {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	
+	> * {
+		display: table-cell;
+		text-align: center;
+	}
+}
+
+%absolute-center {
+	position: absolute;
+	
+	left: 0; right: 0; top: 0; bottom: 0;
+	
+	margin: auto;
+}
+
+%absolute-center-hard {
+	position: absolute;
+	
+	left: -9999px; right: -9999px; top: -9999px; bottom: -9999px;
+	
+	margin: auto;
+}
+   
+/* ----- Выравнивание и позиционирование: ----- */
+
+%float--right, .float--right { float:right!important; }
+%float--left, .float--left	 { float:left !important; }
+%float--none, .float--none	 { float:none !important; }
+
+%align--center, .align--center {
+    margin-left: auto;
+    margin-right: auto; }
+
+%align--justify,
+.align--justify {
+	text-align: justify;
+
+	&:after {
+		content: '';
+	    display: inline-block;
+	    width: 100%;
+    }
+}
+
+/* @end Helpers */

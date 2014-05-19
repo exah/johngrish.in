@@ -1,0 +1,190 @@
+//@import "bourbon";
+
+@import "base/normalize";
+@import "base/resets";
+@import "base/helpers";
+
+
+@mixin box-gradient($color, $size: -40px, $end: 7, $int: .7) {
+	$i: 1; $shadows: (); $newsize: 0;
+	$devide: ($int / $end);
+	
+	@while $i <= $end {
+		$shadows: append($shadows, (inset 0 $size*$i 0 0 rgba($color, $devide * ($end - $i))), comma);
+		
+		$i: $i + 1;
+	}
+	
+	box-shadow: $shadows;
+}
+
+
+
+html, body { height: 100%; }
+
+
+html { font-size: 15px; }
+
+body {
+	background-color: white;
+	
+	font: 16px/1.5em "Helvetica Neue", Helvetica, Arial, Verdana, OpenSans, sans-serif;
+}
+
+.header {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	
+	background-color: #71DBFF;
+//	background-image: linear-gradient(from bottom, 0% rgba(white, .2), 10% rgba(white, .2), 20% rgba(white, .3), 30% rgba(white, .3));
+//	background-image: linear-gradient(to bottom right, red, rgba(255,0,0,0));
+	@include box-gradient(white, -2.5rem);
+	
+	color: #1176be;
+	
+	transition: all .5s linear;
+	
+//	animation: simple-bg 10s linear 0s infinite alternate;	
+}
+
+.description {
+	position: absolute;
+	bottom: 0;
+	font-weight: 300;
+	width: 100%;
+	text-align: center;
+	display: table;
+	
+	&-item {
+		height: 2.5rem;
+//		line-height: 1rem;
+		display: table-row;
+		
+		&-content {
+			display: table-cell;
+			padding: 0 .5rem; 
+			vertical-align: middle;
+		}
+	}
+	
+	a {
+		color: inherit;
+		font-weight: 400;
+		border-bottom: 1px solid rgba(#6eb1d0,.5);
+	}
+}
+
+
+.exah {
+	@extend %absolute-center;
+	width: 100%; height: 100%;
+	
+	max-width: 70%;
+	max-height: 25%;
+	top: 20%;
+	bottom: auto;
+	
+	transition: all .5s linear;
+//	animation: appear 3.5s $ease-out-expo forwards, flying 35s linear 5s infinite alternate;	
+}
+
+@keyframes appear {
+	0% {
+		transform: translate(0, 200px);
+	}
+	
+	100% {
+		transform: translate(0);
+	}
+}
+
+@keyframes flying {
+	0% {
+		transform: translate(0);
+	}
+	
+	20% {
+		transform: translate(0, -10px);
+	}
+	
+	35% {
+		transform: translate(0, -5px);
+	}
+	
+	55% {
+		transform: translate(0, -15px);
+	}
+	
+	70% {
+		transform: translate(0, -15px);
+	}
+	
+	100% {
+		transform: translate(0, 5px);
+	}
+}
+
+@keyframes simple-bg {
+	0% {
+		background-color: #71DBFF;
+		
+		color: #1176be;
+	}
+	
+	100% {
+		background-color: #619ec9;
+		
+		color: #13517d;
+	}
+} 
+
+@keyframes bg {
+	0% {
+		background-color: #71DBFF;
+		@include box-gradient(white);
+	}
+	
+	40% {
+		background-color: #569BCD;
+		@include box-gradient(#FFFDCE);
+	}
+	
+	60% {
+		background-color: #4976AC;
+		@include box-gradient(#FFD273);
+	}
+	
+	100% {
+		background-color: #25455A;
+		@include box-gradient(#E9901B);
+	}
+	
+	100% {
+		background-color:#27155F;
+		@include box-gradient(#941D8D);
+	}
+}
+
+@media all and (max-width: 650px) {
+	html { font-size: 24px; }
+//	.exah { top: 15%; }
+}
+
+
+/* ************************************************************** *
+ 				Made with Love by John Grishin (@exah)
+ 			
+		             ///            ///                     
+		             ///    ////    //////    // ///        
+		             //   //   //   //  ///  ///  ///       
+		            ///  ///   //  ///  ///  //   //        
+		            ///   //////   //   //   //   //        
+		     ////   //                  //                  
+		  ///////////        -         ///        -         
+		 ///      -   /////  //  /////  ///////   //   //////
+		///   ////  ///    ///  //     ///  //   //  ///  //
+		////   ///  //     ///   ///  ///   //  ///  //   //
+		  ///////   //     //  /////  ///  ///  //   //   //
+
+ * ************************************************************** */

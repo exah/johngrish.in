@@ -1,1 +1,1 @@
-Insert some clever text here.\n
+This is source of my personal website, that lives [here](http://johngrish.in).

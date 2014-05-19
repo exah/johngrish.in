@@ -1,24 +1,15 @@
-@import "bourbon";
-
 @import "base/normalize";
 @import "base/resets";
 @import "base/helpers";
 
+// Settings:
 
-@mixin box-gradient($color, $size: -40px, $end: 6, $int: .7s) {
-	$i: 1; $shadows: (); $newsize: 0;
-	$devide: ($int / $end);
-	
-	@while $i <= $end {
-		$shadows: append($shadows, (inset 0 $size*$i 0 0 rgba($color, $devide * ($end - $i))), comma);
-		
-		$i: $i + 1;
-	}
-	
-	box-shadow: $shadows;
-}
+$ease-out-back: cubic-bezier(0.175,  0.885, 0.320, 1.275);
 
+$exah: #51D3FF;
+$size: 2.5rem;
 
+/* ------ Than I've got some styles: ------ */
 
 html, body { height: 100%; }
 
@@ -32,22 +23,13 @@ body {
 	color: #fff
 }
 
-$exah: #51D3FF;
-
 .header {
 	position: relative;
 	height: 100%;
 	
 	background-color: $exah;
-	
 	color: white;
-	
-	transition: all .5s linear;
-	
-//	animation: simple-bg 10s linear 0s infinite alternate;	
 }
-
-$size: 2.5rem;
 
 .description {
 	font-weight: 300;
@@ -56,7 +38,7 @@ $size: 2.5rem;
 	display: table;
 	
 	&-item {
-		height: 2.5rem;
+		height: $size;
 		display: table-row;
 		
 		&-content {
@@ -97,34 +79,19 @@ $size: 2.5rem;
 
 .exah {
 	@extend %absolute-center;
+	
 	width: 100%; height: 100%;
 	
 	max-width: 70%;
 	max-height: 30%;
 	
-	transition: all .5s linear;
-//	animation: appear 3.5s $ease-out-expo forwards, flying 35s linear 5s infinite alternate;	
 	animation: appear-scale 3s $ease-out-back forwards, flying 35s linear 5s infinite alternate;;
 }
 
-@keyframes appear {
-	0% {
-		transform: translate(0, 200px);
-	}
-	
-	100% {
-		transform: translate(0);
-	}
-}
-
 @keyframes appear-scale {
-	0% {
-		transform: scale(0.2);
-	}
+	0% { transform: scale(0.2); }
 	
-	100% {
-		transform: scale(1);
-	}
+	100% { transform: scale(1); }
 }
 
 @keyframes flying {
@@ -153,52 +120,10 @@ $size: 2.5rem;
 	}
 }
 
-@keyframes simple-bg {
-	0% {
-		background-color: $exah;
-		
-		color: #1176be;
-	}
-	
-	100% {
-		background-color: #619ec9;
-		
-		color: #13517d;
-	}
-} 
-
-@keyframes bg {
-	0% {
-		background-color: $exah;
-		@include box-gradient(white);
-	}
-	
-	40% {
-		background-color: #569BCD;
-		@include box-gradient(#FFFDCE);
-	}
-	
-	60% {
-		background-color: #4976AC;
-		@include box-gradient(#FFD273);
-	}
-	
-	100% {
-		background-color: #25455A;
-		@include box-gradient(#E9901B);
-	}
-	
-	100% {
-		background-color:#27155F;
-		@include box-gradient(#941D8D);
-	}
-}
 
 @media all and (max-width: 650px) {
 	html { font-size: 24px; }
-//	.exah { top: 15%; }
 }
-
 
 /* ************************************************************** *
  				Made with Love by John Grishin (@exah)

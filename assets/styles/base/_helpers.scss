@@ -42,8 +42,7 @@
 
 /* Классический clearfix: */
 
-%cf,
-.cf {
+%cf {
 	&:before, &:after {
 	    content: "";
 	    display: table;
@@ -56,8 +55,7 @@
 
 /* Супер маленький clearfix для BFC: */
 
-%mcf,
-.mcf {
+%mcf {
 	*zoom: 1;
 	
 	&:after {
@@ -70,7 +68,7 @@
 	http://www.fionachan.net/talks/block-formatting-context/#/
 */
 
-.bfc, %bfc {
+%bfc {
 	display: table-cell;
 	width: 10000px;
 	vertical-align: top;
@@ -84,8 +82,7 @@
     overflow: hidden;
     *zoom: 1; }
 
-%sizer,
-.sizer {
+%sizer {
 	overflow: hidden;
 	display: block; }
 
@@ -106,6 +103,10 @@
 	}
 }
 
+
+   
+//* ----- Выравнивание и позиционирование: ----- */
+
 %absolute-center {
 	position: absolute;
 	
@@ -121,19 +122,8 @@
 	
 	margin: auto;
 }
-   
-/* ----- Выравнивание и позиционирование: ----- */
 
-%float--right, .float--right { float:right!important; }
-%float--left, .float--left	 { float:left !important; }
-%float--none, .float--none	 { float:none !important; }
-
-%align--center, .align--center {
-    margin-left: auto;
-    margin-right: auto; }
-
-%align--justify,
-.align--justify {
+%align--justify {
 	text-align: justify;
 
 	&:after {
@@ -142,5 +132,3 @@
 	    width: 100%;
     }
 }
-
-/* @end Helpers */

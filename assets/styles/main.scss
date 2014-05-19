@@ -1,11 +1,11 @@
-//@import "bourbon";
+@import "bourbon";
 
 @import "base/normalize";
 @import "base/resets";
 @import "base/helpers";
 
 
-@mixin box-gradient($color, $size: -40px, $end: 7, $int: .7) {
+@mixin box-gradient($color, $size: -40px, $end: 6, $int: .7s) {
 	$i: 1; $shadows: (); $newsize: 0;
 	$devide: ($int / $end);
 	
@@ -29,28 +29,27 @@ body {
 	background-color: white;
 	
 	font: 16px/1.5em "Helvetica Neue", Helvetica, Arial, Verdana, OpenSans, sans-serif;
+	color: #fff
 }
+
+$exah: #51D3FF;
 
 .header {
 	position: relative;
 	height: 100%;
-	overflow: hidden;
 	
-	background-color: #71DBFF;
-//	background-image: linear-gradient(from bottom, 0% rgba(white, .2), 10% rgba(white, .2), 20% rgba(white, .3), 30% rgba(white, .3));
-//	background-image: linear-gradient(to bottom right, red, rgba(255,0,0,0));
-	@include box-gradient(white, -2.5rem);
+	background-color: $exah;
 	
-	color: #1176be;
+	color: white;
 	
 	transition: all .5s linear;
 	
 //	animation: simple-bg 10s linear 0s infinite alternate;	
 }
 
+$size: 2.5rem;
+
 .description {
-	position: absolute;
-	bottom: 0;
 	font-weight: 300;
 	width: 100%;
 	text-align: center;
@@ -58,7 +57,6 @@ body {
 	
 	&-item {
 		height: 2.5rem;
-//		line-height: 1rem;
 		display: table-row;
 		
 		&-content {
@@ -66,27 +64,47 @@ body {
 			padding: 0 .5rem; 
 			vertical-align: middle;
 		}
+		
+		&:nth-of-type(1) {
+			background-color: rgba($exah, .87);
+		}
+		&:nth-of-type(2) {
+			background-color: rgba($exah, .57);
+		}
+		&:nth-of-type(3) {
+			background-color: rgba($exah, .4);
+		}
+		&:nth-of-type(4) {
+			background-color: rgba($exah, .15);
+		}
+		&:nth-of-type(5) {
+			background-color: rgba($exah, 0);
+		}
+		
 	}
 	
 	a {
 		color: inherit;
 		font-weight: 400;
-		border-bottom: 1px solid rgba(#6eb1d0,.5);
+		border-bottom: 1px solid rgba(#fff,.5);
+		
+		&.mailto {
+			color: #6EB1D0;
+			border-bottom: 1px solid rgba(#6EB1D0,.5);
+		}
 	}
 }
-
 
 .exah {
 	@extend %absolute-center;
 	width: 100%; height: 100%;
 	
 	max-width: 70%;
-	max-height: 25%;
-	top: 20%;
-	bottom: auto;
+	max-height: 30%;
 	
 	transition: all .5s linear;
 //	animation: appear 3.5s $ease-out-expo forwards, flying 35s linear 5s infinite alternate;	
+	animation: appear-scale 3s $ease-out-back forwards, flying 35s linear 5s infinite alternate;;
 }
 
 @keyframes appear {
@@ -96,6 +114,16 @@ body {
 	
 	100% {
 		transform: translate(0);
+	}
+}
+
+@keyframes appear-scale {
+	0% {
+		transform: scale(0.2);
+	}
+	
+	100% {
+		transform: scale(1);
 	}
 }
 
@@ -127,7 +155,7 @@ body {
 
 @keyframes simple-bg {
 	0% {
-		background-color: #71DBFF;
+		background-color: $exah;
 		
 		color: #1176be;
 	}
@@ -141,7 +169,7 @@ body {
 
 @keyframes bg {
 	0% {
-		background-color: #71DBFF;
+		background-color: $exah;
 		@include box-gradient(white);
 	}
 	

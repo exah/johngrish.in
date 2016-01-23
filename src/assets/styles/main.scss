@@ -1,0 +1,154 @@
+// Settings:
+
+$ease-out-back: cubic-bezier(0.175,  0.885, 0.320, 1.275);
+
+$exah: #51D3FF;
+$size: 2.5rem;
+
+/* ------ Than I've got some styles: ------ */
+
+html, body { height: 100%; }
+
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+html { font-size: 15px; }
+
+body {
+	background-color: white;
+
+	font: 16px/1.5em "Helvetica Neue", Helvetica, Arial, Verdana, OpenSans, sans-serif;
+	color: #fff
+}
+
+.header {
+	position: relative;
+	height: 100%;
+
+	background-color: $exah;
+	color: white;
+}
+
+.description {
+	font-weight: 300;
+	width: 100%;
+	text-align: center;
+	display: table;
+
+	&-item {
+		height: $size;
+		display: table-row;
+
+		&-content {
+			display: table-cell;
+			padding: 0 .5rem;
+			vertical-align: middle;
+		}
+
+		&:nth-of-type(1) {
+			background-color: rgba($exah, .87);
+		}
+		&:nth-of-type(2) {
+			background-color: rgba($exah, .57);
+		}
+		&:nth-of-type(3) {
+			background-color: rgba($exah, .4);
+		}
+		&:nth-of-type(4) {
+			background-color: rgba($exah, .15);
+		}
+		&:nth-of-type(5) {
+			background-color: rgba($exah, 0);
+		}
+
+	}
+
+	a {
+		color: inherit;
+		font-weight: 400;
+		border-bottom: 1px solid rgba(#fff,.5);
+
+		&.mailto {
+			color: #6EB1D0;
+			border-bottom: 1px solid rgba(#6EB1D0,.5);
+		}
+	}
+}
+
+.exah {
+	position: absolute;
+
+	left: 0; right: 0; top: 0; bottom: 0;
+
+	margin: auto;
+
+	width: 100%; height: 100%;
+
+	max-width: 70%;
+	max-height: 30%;
+
+	animation: appear-scale 3s $ease-out-back forwards,
+						 flying 35s linear 5s infinite alternate;
+}
+
+@keyframes appear-scale {
+	0% { transform: scale(0.2); }
+
+	100% { transform: scale(1); }
+}
+
+@keyframes flying {
+	0% {
+		transform: translate(0);
+	}
+
+	20% {
+		transform: translate(0, -10px);
+	}
+
+	35% {
+		transform: translate(0, -5px);
+	}
+
+	55% {
+		transform: translate(0, -15px);
+	}
+
+	70% {
+		transform: translate(0, -15px);
+	}
+
+	100% {
+		transform: translate(0, 5px);
+	}
+}
+
+
+@media all and (max-width: 650px) {
+	html { font-size: 24px; }
+}
+
+/* ************************************************************** *
+ 				Made with Love by John Grishin (@exah)
+
+		             ///            ///
+		             ///    ////    //////    // ///
+		             //   //   //   //  ///  ///  ///
+		            ///  ///   //  ///  ///  //   //
+		            ///   //////   //   //   //   //
+		     ////   //                  //
+		  ///////////        -         ///        -
+		 ///      -   /////  //  /////  ///////   //   //////
+		///   ////  ///    ///  //     ///  //   //  ///  //
+		////   ///  //     ///   ///  ///   //  ///  //   //
+		  ///////   //     //  /////  ///  ///  //   //   //
+
+ * ************************************************************** */

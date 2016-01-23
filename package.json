@@ -2,10 +2,12 @@
   "name": "johngrish.in",
   "version": "1.0.0",
   "description": "Personal website",
-  "main": "index.html",
+  "main": "src/index.html",
   "scripts": {
-    "start": "webpack-dev-server --port 3456",
+    "start": "webpack-dev-server",
     "build": "NODE_ENV='production' webpack",
+    "prebuild": "npm run clean",
+    "clean": "rm -r dist/* || exit 0",
     "test": "echo \"Nothing to test.\" && exit 0",
     "publish": "git subtree push --prefix dist origin gh-pages"
   },

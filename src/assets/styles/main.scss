@@ -1,7 +1,3 @@
-@import "base/normalize";
-@import "base/resets";
-@import "base/helpers";
-
 // Settings:
 
 $ease-out-back: cubic-bezier(0.175,  0.885, 0.320, 1.275);
@@ -13,12 +9,22 @@ $size: 2.5rem;
 
 html, body { height: 100%; }
 
+ul,
+ol {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
 
 html { font-size: 15px; }
 
 body {
 	background-color: white;
-	
+
 	font: 16px/1.5em "Helvetica Neue", Helvetica, Arial, Verdana, OpenSans, sans-serif;
 	color: #fff
 }
@@ -26,7 +32,7 @@ body {
 .header {
 	position: relative;
 	height: 100%;
-	
+
 	background-color: $exah;
 	color: white;
 }
@@ -36,17 +42,17 @@ body {
 	width: 100%;
 	text-align: center;
 	display: table;
-	
+
 	&-item {
 		height: $size;
 		display: table-row;
-		
+
 		&-content {
 			display: table-cell;
-			padding: 0 .5rem; 
+			padding: 0 .5rem;
 			vertical-align: middle;
 		}
-		
+
 		&:nth-of-type(1) {
 			background-color: rgba($exah, .87);
 		}
@@ -62,14 +68,14 @@ body {
 		&:nth-of-type(5) {
 			background-color: rgba($exah, 0);
 		}
-		
+
 	}
-	
+
 	a {
 		color: inherit;
 		font-weight: 400;
 		border-bottom: 1px solid rgba(#fff,.5);
-		
+
 		&.mailto {
 			color: #6EB1D0;
 			border-bottom: 1px solid rgba(#6EB1D0,.5);
@@ -78,19 +84,24 @@ body {
 }
 
 .exah {
-	@extend %absolute-center;
-	
+	position: absolute;
+
+	left: 0; right: 0; top: 0; bottom: 0;
+
+	margin: auto;
+
 	width: 100%; height: 100%;
-	
+
 	max-width: 70%;
 	max-height: 30%;
-	
-	animation: appear-scale 3s $ease-out-back forwards, flying 35s linear 5s infinite alternate;;
+
+	animation: appear-scale 3s $ease-out-back forwards,
+						 flying 35s linear 5s infinite alternate;
 }
 
 @keyframes appear-scale {
 	0% { transform: scale(0.2); }
-	
+
 	100% { transform: scale(1); }
 }
 
@@ -98,23 +109,23 @@ body {
 	0% {
 		transform: translate(0);
 	}
-	
+
 	20% {
 		transform: translate(0, -10px);
 	}
-	
+
 	35% {
 		transform: translate(0, -5px);
 	}
-	
+
 	55% {
 		transform: translate(0, -15px);
 	}
-	
+
 	70% {
 		transform: translate(0, -15px);
 	}
-	
+
 	100% {
 		transform: translate(0, 5px);
 	}
@@ -127,14 +138,14 @@ body {
 
 /* ************************************************************** *
  				Made with Love by John Grishin (@exah)
- 			
-		             ///            ///                     
-		             ///    ////    //////    // ///        
-		             //   //   //   //  ///  ///  ///       
-		            ///  ///   //  ///  ///  //   //        
-		            ///   //////   //   //   //   //        
-		     ////   //                  //                  
-		  ///////////        -         ///        -         
+
+		             ///            ///
+		             ///    ////    //////    // ///
+		             //   //   //   //  ///  ///  ///
+		            ///  ///   //  ///  ///  //   //
+		            ///   //////   //   //   //   //
+		     ////   //                  //
+		  ///////////        -         ///        -
 		 ///      -   /////  //  /////  ///////   //   //////
 		///   ////  ///    ///  //     ///  //   //  ///  //
 		////   ///  //     ///   ///  ///   //  ///  //   //
